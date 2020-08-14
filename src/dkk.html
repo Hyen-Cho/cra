@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="reset.css">
+  </link>
+  <title>Document</title>
+  <style>
+    * {
+      font-size: 30px;
+    }
+
+    .main-title {
+      background-color: yellow;
+    }
+
+    .menu {
+      background-color: yellowgreen;
+    }
+
+    .menu-link {
+      display: inline;
+      background-color: skyblue;
+      text-decoration: none;
+    }
+
+    .menu-active {
+      background-color: violet;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="main-title" style="text-align: center;">Event</h1>
+
+  <nav class="menu">
+    <a href="#" class="menu-link" data-menu="1">menu 1</a>
+    <a href="#" class="menu-link" data-menu="2">menu 2</a>
+    <a href="#" class="menu-link" data-menu="3">menu 3</a>
+  </nav>
+
+  <script>
+    var currentMenu;
+    var menu = document.querySelector('.menu');
+
+    function clickHandler(e) {
+      console.log(e);
+      if (currentMenu) {
+        currentMenu.classList.remove('menu-active');
+      }
+      e.target.classList.add('menu-active');
+      currentMenu = e.target;
+    }
+
+    menu.addEventListener('click', clickHandler);
+
+    console.log(document.styleSheets);
+    console.log(document.querySelector('link').sheet);
+    console.log(document.querySelector('style').sheet);
+    console.log(document.querySelector('h1').sheet);
+  </script>
+</body>
+
+</html>
